@@ -12,14 +12,12 @@ var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 var stompClient = null;
 var username = null;
-var password = null;
 var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
     '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
 ];
 function connect(event) {
     username = document.querySelector('#name').value.trim();
-    password = document.querySelector('#password').value.trim();
     if(username) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
