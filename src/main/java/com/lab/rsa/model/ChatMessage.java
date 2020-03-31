@@ -1,16 +1,27 @@
 package com.lab.rsa.model;
 
-public class ChatMessage{
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import java.security.KeyPair;
+
+
+@Service
+public class ChatMessage {
     private MessageType type;
     private String sender;
     private String protection;
     private String content;
+    private KeyPair keyPair;
 
-    public enum MessageType{
+
+    public enum MessageType {
         CHAT,
         JOIN,
-        LEAVE
+        LEAVE,
+        SERVER
     }
+
 
     public MessageType getType() {
         return type;
@@ -31,6 +42,7 @@ public class ChatMessage{
     public String getContent() {
         return content;
     }
+
     public void setContent(String content) {
         this.content = content;
     }
@@ -41,5 +53,13 @@ public class ChatMessage{
 
     public void setProtection(String protection) {
         this.protection = protection;
+    }
+
+    public KeyPair getKeyPair() {
+        return keyPair;
+    }
+
+    public void setKeyPair(KeyPair keyPair) {
+        this.keyPair = keyPair;
     }
 }
