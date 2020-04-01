@@ -43,19 +43,10 @@ public class ChatController {
 //        System.out.println("Message: " + chatMessage.getContent());
 //        System.out.println("Public key: " + keyPair.getPublic());
 //        System.out.println("Message: " + keyPair.getPrivate());
-//        String decoded = null;
-//        try {
-//            Cipher cipher = Cipher.getInstance(RSAConstants.ALGORITHM);
-//            cipher.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
-//            decoded = new String(cipher.doFinal(Base64.decodeBase64(chatMessage.getContent())));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        chatMessage.setContent(decoded);
-        byte[] encrypted = RSAEncryptDecrypt.encrypt(chatMessage.getContent(), keyPair.getPrivate());
-        System.out.println("Encrypted: " + new String(encrypted));
-        byte[] decrypted = RSAEncryptDecrypt.decrypt(encrypted, keyPair.getPublic());
-        System.out.println("Decrypted: " + new String(decrypted));
+        byte[] encrypted = RSAEncryptDecrypt.encrypt(chatMessage.getContent(), keyPair.getPublic());
+        System.out.println("Encrypted message: " + new String(encrypted));
+        byte[] decrypted = RSAEncryptDecrypt.decrypt(encrypted, keyPair.getPrivate());
+        System.out.println("Decrypted message: " + new String(decrypted));
         chatMessage.setContent(new String(decrypted));
         return chatMessage;
     }

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import javax.crypto.Cipher;
 import java.security.Key;
 import java.security.KeyPair;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 
 @Service
 public class ChatService {
@@ -35,6 +33,7 @@ public class ChatService {
 //        System.out.println("Decrypt End");
         return keyPair;
     }
+
     public String convert(Key key, ChatMessage chatMessage) {
         String decoded;
         try {

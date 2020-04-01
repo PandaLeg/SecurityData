@@ -7,17 +7,17 @@ import java.security.Key;
 
 @Component
 public class RSAEncryptDecrypt {
-    public static byte[] encrypt(String original, Key privateKey) {
-        if (original != null && privateKey != null) {
+    public static byte[] encrypt(String original, Key publicKey) {
+        if (original != null && publicKey != null) {
             byte[] bs = original.getBytes();
-            byte[] encData = convert(bs, privateKey, Cipher.ENCRYPT_MODE);
+            byte[] encData = convert(bs, publicKey, Cipher.ENCRYPT_MODE);
             return encData;
         }
         return null;
     }
-    public static byte[] decrypt(byte[] encrypted, Key publicKey) {
-        if (encrypted != null && publicKey != null) {
-            byte[] decData = convert(encrypted, publicKey, Cipher.DECRYPT_MODE);
+    public static byte[] decrypt(byte[] encrypted, Key privateKey) {
+        if (encrypted != null && privateKey != null) {
+            byte[] decData = convert(encrypted, privateKey, Cipher.DECRYPT_MODE);
             return decData;
         }
         return null;

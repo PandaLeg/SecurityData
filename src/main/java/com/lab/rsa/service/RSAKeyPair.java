@@ -16,7 +16,7 @@ public class RSAKeyPair {
         }
         if (generator != null) {
             generator.initialize(RSAConstants.ALGORITHM_BITS);
-            return generator.genKeyPair();
+            return generator.generateKeyPair();
         }
         return null;
     }
